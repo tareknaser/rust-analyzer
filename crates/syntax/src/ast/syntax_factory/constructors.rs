@@ -4,7 +4,7 @@ use itertools::Itertools;
 use crate::{
     ast::{self, make, HasName},
     syntax_editor::SyntaxMappingBuilder,
-    AstNode,
+    AstNode, SyntaxToken,
 };
 
 use super::SyntaxFactory;
@@ -12,6 +12,10 @@ use super::SyntaxFactory;
 impl SyntaxFactory {
     pub fn name(&self, name: &str) -> ast::Name {
         make::name(name).clone_for_update()
+    }
+
+    pub fn whitespace(&self, text: &str) -> SyntaxToken {
+        make::tokens::whitespace(text)
     }
 
     pub fn ident_pat(&self, ref_: bool, mut_: bool, name: ast::Name) -> ast::IdentPat {
