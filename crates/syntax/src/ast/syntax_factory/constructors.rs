@@ -40,6 +40,10 @@ impl SyntaxFactory {
         ast
     }
 
+    pub fn whitespace(&self, text: &str) -> SyntaxToken {
+        make::tokens::whitespace(text)
+    }
+
     pub fn ident_pat(&self, ref_: bool, mut_: bool, name: ast::Name) -> ast::IdentPat {
         let ast = make::ident_pat(ref_, mut_, name.clone()).clone_for_update();
 
