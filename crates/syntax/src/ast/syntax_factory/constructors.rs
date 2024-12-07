@@ -18,6 +18,10 @@ impl SyntaxFactory {
         make::ty(text).clone_for_update()
     }
 
+    pub fn whitespace(&self, text: &str) -> SyntaxToken {
+        make::tokens::whitespace(text)
+    }
+
     pub fn type_param(
         &self,
         name: ast::Name,
@@ -38,10 +42,6 @@ impl SyntaxFactory {
         }
 
         ast
-    }
-
-    pub fn whitespace(&self, text: &str) -> SyntaxToken {
-        make::tokens::whitespace(text)
     }
 
     pub fn ident_pat(&self, ref_: bool, mut_: bool, name: ast::Name) -> ast::IdentPat {
